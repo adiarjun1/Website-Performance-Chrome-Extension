@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="settingsApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="lib/angular.min.js"></script>
+    <script src="settings.js"></script>
+</head>
+<body ng-controller="SettingsController">
+    <div class="container">
+        <header>
+            <h1>Settings</h1>
+        </header>
+        <main id="settings">
+            <form>
+                <label><input type="checkbox" ng-model="settings.ttfb"> TTFB</label>
+                <label><input type="checkbox" ng-model="settings.ttlb"> TTLB</label>
+                <label><input type="checkbox" ng-model="settings.dnsLookupTime"> DNS Lookup Time</label>
+                <label><input type="checkbox" ng-model="settings.fcp"> FCP</label>
+                <label><input type="checkbox" ng-model="settings.totalPageSize"> Total Page Size</label>
+                <label><input type="checkbox" ng-model="settings.numHttpsRequests"> Num of HTTPS Requests</label>
+                <label><input type="checkbox" ng-model="settings.si"> Speed Index</label>
+                <label><input type="checkbox" ng-model="settings.lcp"> LCP</label>
+                <label><input type="checkbox" ng-model="settings.fid"> FID</label>
+                <label><input type="checkbox" ng-model="settings.cls"> CLS</label>
+                <label><input type="checkbox" ng-model="settings.maxFid"> Max FID</label>
+                <label><input type="checkbox" ng-model="settings.pageLoadTime"> Page Load Time</label>
+                <label><input type="checkbox" ng-model="settings.tti"> TTI</label>
+            </form>
+        </main>
+        <footer>
+            <a href="popup.html">Back</a>
+        </footer>
+    </div>
+</body>
+</html>

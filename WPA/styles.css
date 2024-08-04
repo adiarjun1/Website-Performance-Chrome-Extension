@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #F7F9FC;
+}
+
+.container {
+  width: 400px;
+  max-width: 100%;
+  min-height: 300px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  margin: 20px 0;
+  overflow: auto;
+}
+
+#metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px; /* Reduced padding */
+  border-radius: 8px;
+  background-color: #E9ECEF;
+  font-size: 12px;
+  color: #343A40;
+  border-bottom: 4px solid transparent;
+}
+
+.metric span {
+  margin: 4px 0; /* Reduced margin */
+}
+
+.metric-value {
+  padding: 4px;
+  border-radius: 6px;
+  text-align: center;
+  width: 100%;
+}
+
+.metric.good {
+  border-bottom-color: #28a745;
+}
+
+.metric.moderate {
+  border-bottom-color: #ffc107;
+}
+
+.metric.poor {
+  border-bottom-color: #fd7e14;
+}
+
+.metric.bad {
+  border-bottom-color: #dc3545;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer button,
+footer a {
+  background-color: #0056b3;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+}
+
+footer button:hover,
+footer a:hover {
+  background-color: #003f7f;
+}
+
+.disclaimer {
+  text-align: center;
+  font-size: 10px;
+  color: #6c757d;
+  margin-top: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E9ECEF;
+  padding: 10px;
+  border-radius: 6px;
+  color: #343A40;
+  margin-bottom: 5px;
+}
+
+form input[type="checkbox"] {
+  accent-color: #007BFF;
+}
+
