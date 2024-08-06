@@ -1,7 +1,7 @@
 (function() {
   const { s3, dynamoDB } = require('./aws-config');
 
-  // Function to send performance data to S3
+  //function that will send performance data to S3
   const sendPerformanceDataToS3 = async (data) => {
       const objectKey = `performance-data/${Date.now()}.json`;
       
@@ -14,9 +14,9 @@
 
       try {
           await s3.putObject(params).promise();
-          console.log('Data successfully uploaded to S3');
+          console.log('Successfully uploaded to S3');
       } catch (error) {
-          console.error('Error uploading data to S3:', error);
+          console.error('Error uploading to S3:', error);
       }
   };
 
@@ -32,9 +32,9 @@
 
       try {
           await dynamoDB.put(params).promise();
-          console.log('Data successfully stored in DynamoDB');
+          console.log('Successfully stored in DynamoDB');
       } catch (error) {
-          console.error('Error storing data in DynamoDB:', error);
+          console.error('Error storing in DynamoDB:', error);
       }
   };
 
@@ -65,6 +65,7 @@
   };
 
   const calculateSpeedIndex = () => {
+    // using the performance api below, everything documented on their website
     const paintEntries = performance.getEntriesByType('paint');
     const navigationEntries = performance.getEntriesByType('navigation');
 
@@ -77,11 +78,13 @@
         const fcpTime = firstContentfulPaint.startTime;
         const lcpTime = lcpValue;
 
-        // Simplified Speed Index calculation
+        // Easy Speed Index calculation (actually a little more complicated)
         performanceData.si = ((fcpTime + lcpTime) / 2 - start).toFixed(1);
       }
     }
   };
+
+  // Now update everything below
 
   if ('PerformanceObserver' in window) {
     new PerformanceObserver((entryList) => {
@@ -125,6 +128,7 @@
   }
 
   const loadPerformanceData = () => {
+    // really simple calculations
     const navigationTiming = performance.getEntriesByType('navigation')[0];
     const resourceTiming = performance.getEntriesByType('resource');
 
@@ -153,6 +157,7 @@
   };
 
   const calculatePageLoadTime = () => {
+    // load time sometimes doesn't work using performance api so you have to do it like this
     const pageEnd = performance.now();
     const loadTime = pageEnd / 1000;
 

@@ -2,11 +2,12 @@ const app = angular.module('metricsApp', []);
 
 app.controller('MetricsController', ['$scope', '$timeout', ($scope, $timeout) => {
     const thresholds = {
-        ttfb: [200, 300, 500], // [Good, Moderate, Poor]
+        // [Good, Moderate, Poor]
+        ttfb: [200, 300, 500], 
         ttlb: [1000, 2000, 3000],
         dnsLookupTime: [100, 200, 300],
         fcp: [1000, 2000, 3000],
-        totalPageSize: [2000000, 3000000, 5000000], // 2MB, 3MB, 5MB
+        totalPageSize: [2000000, 3000000, 5000000], 
         numHttpsRequests: [50, 100, 150],
         si: [3500, 4500, 6000],
         lcp: [2500, 4000, 6000],
@@ -76,6 +77,9 @@ app.controller('MetricsController', ['$scope', '$timeout', ($scope, $timeout) =>
         });
     };
 
+
+
+    // probably won't end up using this
     const displayChart = (canvas, historicalData) => {
         const ctx = canvas.getContext('2d');
         const labels = historicalData.map(data => new Date(data.timestamp).toLocaleTimeString());
@@ -110,7 +114,7 @@ app.controller('MetricsController', ['$scope', '$timeout', ($scope, $timeout) =>
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             const tabId = tabs[0].id;
             chrome.tabs.reload(tabId, () => {
-                $timeout(loadMetrics, 1000); // Adjust the timeout as necessary
+                $timeout(loadMetrics, 1000); // Timeout
             });
         });
     };

@@ -1,9 +1,9 @@
 const AWS = require('aws-sdk');
 
 AWS.config.update({
-    accessKeyId: "N/A",
-    secretAccessKey: "N/A",
-    region: us-east-1
+    accessKeyId: N/A,
+    secretAccessKey: N/A,
+    region: N/A
 });
 
 const s3 = new AWS.S3();
